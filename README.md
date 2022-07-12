@@ -18,7 +18,7 @@ Also uses Nodemon as dev dependency to support on the fly changes
 ## Setup
 Download or Clone the repo
 `npm install` to install all dependencies
-The app backend will start with the command `npx nodemon app.js` and runs on port 3000
+The app backend will start with the command `npx nodemon app.js` and runs on port 3000 at `localhost:3000`
 Once a request is made from the front end it will log what its doing inside the console.
 
 ## My Approach and Reflections 
