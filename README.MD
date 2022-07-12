@@ -3,7 +3,7 @@ Simple backend that contains the Destiny 2 Manifest
 
 ## Status
 This project is currently in development. 
-The functionality it does have is the abiliy to take inputs and return data to a front end.
+The functionality it does have is the ability to take inputs and return data to a front end.
 
 ## About The App
 This app is acts as a simple database and server for my front end and acts as a method to extract the entire Destiny 2 manifest from bungie's API. 
