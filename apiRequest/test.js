@@ -100,14 +100,14 @@ function queryManifest(){
 		
 		let query1 = `SELECT json_extract(DestinyInventoryItemDefinition.json, '$') AS ITEM
         FROM DestinyInventoryItemDefinition, json_tree(DestinyInventoryItemDefinition.json, '$')
-        WHERE json_tree.key = 'name' AND UPPER(json_tree.value) LIKE UPPER('%Crown-Splitter%')` //use this code here to put in a variable for a serach later.
+        WHERE json_tree.key = 'name' AND UPPER(json_tree.value) LIKE UPPER('%Crown-Splitter%')` //use this code here to put in a variable for a search later.
         
         
 		db.get(query1, function(err, row){
 			if(err) throw err;
             var parse = row.ITEM
-            var fin = JSON.parse(parse);
-            console.log(fin.displayProperties);
+            var item = JSON.parse(parse);
+            console.log(item.displayProperties);
 		console.log(fin.displayProperties.name);
         return fin
 		});

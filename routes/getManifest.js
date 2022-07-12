@@ -21,7 +21,7 @@ let options = {
         encoding: null,
         headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': '4d80fc1c6b474ae5aa6c01cbc7912002'
+            'X-API-Key': '4d80fc1c6b474ae5aa6c01cbc7912002' // hard coded for simplicity must hide in env file later!
         }
     };
 
@@ -55,33 +55,32 @@ router.post('/', (req, res, next)=> {
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);
             });
-    var test = req.body.input
-    var userInput = test
+    var userInput = req.body.input
     var query =  `"%${userInput}%"`
     
-    console.log(test)
+    console.log(userInput)
     // serialize makes it so that each line has to finish before the next starts
-	db.serialize(function(){
+	db.serialize(function() {
 		console.log('connection successful');
 		let userQuery = `SELECT json_extract(DestinyInventoryItemDefinition.json, '$') AS ITEM
         FROM DestinyInventoryItemDefinition, json_tree(DestinyInventoryItemDefinition.json, '$')
-        WHERE json_tree.key = 'name' AND UPPER(json_tree.value) LIKE UPPER (${query})`
-        
+        WHERE json_tree.key = 'name' AND UPPER(json_tree.value) LIKE UPPER (${query})` //update later to send all tables for perks and lore data a join might be needed
+
         
 		db.get(userQuery, (err, row) => {
 			if(err) throw err;
-            var obj = row.ITEM
-            var parseData = JSON.parse(obj);
-            var itemData = parseData //might have to adjust this later and add more rows for the data i need.
-            console.log(itemData);
-            res.json(itemData);
-        
+            var tableData = row.ITEM
+            var itemData = JSON.parse(tableData);
+            console.log(itemData)
+            res.json(itemData);       
 		});
+
+
 	});
     db.close(console.log('db is closed'))
 
 })
 
 
-// getManifest();
+getManifest();
 module.exports = router;
