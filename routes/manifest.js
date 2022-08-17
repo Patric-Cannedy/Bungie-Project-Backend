@@ -5,7 +5,7 @@ let path = require('path');
 require('../extractedManifest/test.txt');
 let definitions = require('../apiRequest/table.json');
 
-router.get('/', (req, res, next)=>{
+router.get('/Bungie-Project', (req, res, next)=>{
 	res.json()
 	});
 
