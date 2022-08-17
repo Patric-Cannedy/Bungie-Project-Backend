@@ -7,6 +7,7 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 const manifest = require('./routes/getManifest');
 const port = process.env.PORT || 3000;
+const host = '0.0.0.0';
 const app = express();
 let definitions = require('./apiRequest/table.json');
 const router = express.Router();
@@ -22,6 +23,6 @@ app.use(cors({
 }));
 
 
-app.listen(3000, () => console.log('server is up'));
+app.listen(port, host, () => console.log('server is up'));
 
 module.exports = app;
