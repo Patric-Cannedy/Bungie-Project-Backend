@@ -1,9 +1,10 @@
-var express = require('express');
+
+const express = require('express');
 let http = require('http');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let path = require('path');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 const manifest = require('./routes/getManifest');
 const port = 3000;
 const app = express();
@@ -12,7 +13,6 @@ const router = express.Router();
 const cors = require('cors');
 // app.use('/manifest', manifest);
 
-//body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());

@@ -1,3 +1,4 @@
+require("dotenv").config();
 var express = require('express');
 var router = express.Router();
 let path = require('path');
@@ -10,9 +11,9 @@ const StreamZip = require('node-stream-zip');
 
 
 let baseUrl = 'https://www.bungie.net';
-let manifest = "/common/destiny2_content/sqlite/en/world_sql_content_c1d4ac435e5ce5b3046fe2d0e6190ce4.content"
+let manifest = "/common/destiny2_content/sqlite/en/world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content"
 //english entry in the zip file that must be extracted
-let en_option = 'world_sql_content_c1d4ac435e5ce5b3046fe2d0e6190ce4.content'
+let en_option = 'world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content'
 
 let options = {
         url: baseUrl + manifest,
@@ -21,7 +22,7 @@ let options = {
         encoding: null,
         headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': '4d80fc1c6b474ae5aa6c01cbc7912002' // hard coded for simplicity must hide in env file later!
+            'X-API-Key': 'process.env.RANDOMER_API_TOKEN' // hard coded for simplicity must hide in env file later!
         }
     };
 
