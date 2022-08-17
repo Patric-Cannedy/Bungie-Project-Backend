@@ -1,6 +1,5 @@
-const express = require('express');
-const app = express();
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 let path = require('path');
 // let getManifest = require('../apiRequest/getManifest.js');
 require('../extractedManifest/test.txt');
