@@ -12,7 +12,7 @@ const app = express();
 let definitions = require('./apiRequest/table.json');
 const router = express.Router();
 const cors = require('cors');
-// app.use('/manifest', manifest);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
