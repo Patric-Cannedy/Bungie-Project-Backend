@@ -7,13 +7,15 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 const manifest = require('./routes/getManifest');
 const port = process.env.PORT || 3000;
-const host = '0.0.0.0';
+const host = '0.0.0.0'; 
 const app = express();
 let definitions = require('./apiRequest/table.json');
 const router = express.Router();
 const cors = require('cors');
 
-
+app.get("/:universalURL", (req, res) => {
+    res.send("404 URL NOT FOUND");
+ });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
