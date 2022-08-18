@@ -51,7 +51,7 @@ function getManifest(){
         });
 };
 
-router.post('/', (req, res, next)=> {
+router.post('/', (req, res)=> {
    
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);

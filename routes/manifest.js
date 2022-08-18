@@ -5,9 +5,9 @@ let path = require('path');
 require('../extractedManifest/test.txt');
 let definitions = require('../apiRequest/table.json');
 
-router.get('/', (req, res, next)=>{
-	res.json()
-	});
+// router.get('/', (req, res, next)=>{
+// 	res.json()
+// 	});
 
 
 module.exports = router;
