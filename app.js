@@ -17,7 +17,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
-app.use('/search', manifest);
+app.use('/https://bungie-manifest.herokuapp.com/', manifest);
 app.use(cors({
     origin: '*'
 }));
