@@ -13,7 +13,7 @@ let definitions = require('./apiRequest/table.json');
 const router = express.Router();
 const cors = require('cors');
 
-app.get("/", (req, res) => {
+app.get("/Bungie-Project", (req, res) => {
     res.send("404 URL NOT FOUND");
  });
 
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
-app.use('/Bungie-Project', manifest);
+app.use('/', manifest);
 app.use(cors({
     origin: '*'
 }));
