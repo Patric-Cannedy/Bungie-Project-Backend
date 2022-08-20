@@ -51,7 +51,7 @@ function getManifest(){
         });
 };
 
-router.post('/', (req, res)=> {
+router.post('/Bungie-Project', (req, res)=> {
    
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);
