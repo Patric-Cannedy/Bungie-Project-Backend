@@ -22,9 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
 app.use('/', manifest);
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors());
 
 
 app.listen(port, host, () => console.log('server is up'));

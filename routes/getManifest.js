@@ -8,7 +8,7 @@ let fs = require('fs');
 let sql = require('sqlite3')
 let definitions = require('../apiRequest/table.json');
 const StreamZip = require('node-stream-zip');
-
+const port = process.env.PORT || 3000
 
 let baseUrl = 'https://www.bungie.net';
 let manifest = "/common/destiny2_content/sqlite/en/world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content"
@@ -17,7 +17,7 @@ let en_option = 'world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content'
 
 let options = {
         url: baseUrl + manifest,
-        port: 443,
+        port: port,
         method: 'GET',
         encoding: null,
         headers: {
