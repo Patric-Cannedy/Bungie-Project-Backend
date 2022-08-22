@@ -51,7 +51,7 @@ function getManifest(){
         });
 }; 
 
-router.post('/', (req, res)=> {
+router.post('bungie-manifest.herokuapp.com', (req, res)=> {
     
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);
