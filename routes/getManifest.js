@@ -22,7 +22,7 @@ let options = {
         encoding: null,
         headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': '4d80fc1c6b474ae5aa6c01cbc7912002' 
+            'X-API-Key': 'process.env.RANDOMER_API_TOKEN' 
         },
     };
 
@@ -51,7 +51,7 @@ function getManifest(){
         });
 }; 
 
-router.post('/Bungie-Project', (req, res)=> {
+router.get('/Bungie-Project', (req, res)=> {
     
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);
