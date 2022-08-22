@@ -17,11 +17,11 @@ app.get("/", (req, res) => {
     res.send("Server Page");
  });
 
-
+app.post("bungie-manifest.herokuapp.com", manifest);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
-app.use('/', manifest);
+// app.use('/', manifest);
 app.use(cors({
     origin: '*',
     credentials:true,            //access-control-allow-credentials:true
