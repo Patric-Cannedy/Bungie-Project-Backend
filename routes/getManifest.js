@@ -1,6 +1,6 @@
 require("dotenv").config();
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 let path = require('path');
 let request = require('request');
 let https = require('https');
@@ -17,13 +17,13 @@ let en_option = 'world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content'
 
 let options = {
         url: baseUrl + manifest,
-        port: port,
+        port: 443,
         method: 'GET',
         encoding: null,
         headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': 'process.env.RANDOMER_API_TOKEN' // hard coded for simplicity must hide in env file later!
-        }
+            'X-API-Key': 'process.env.RANDOMER_API_TOKEN' 
+        },
     };
 
 //Bungie's api sends a sql db as a zip that must be extracted 
@@ -49,16 +49,15 @@ function getManifest(){
                 });
             });  
         });
-};
+}; 
 
 router.post('/', (req, res)=> {
-   
+    
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);
             });
-    var userInput = req.body.input
-    var query =  `"%${userInput}%"`
-    
+    let userInput = req.body.input
+    let query =  `"%${userInput}%"`
     console.log(userInput)
     // serialize makes it so that each line has to finish before the next starts
 	db.serialize(function() {
@@ -66,12 +65,12 @@ router.post('/', (req, res)=> {
 		let userQuery = `SELECT json_extract(DestinyInventoryItemDefinition.json, '$') AS ITEM
         FROM DestinyInventoryItemDefinition, json_tree(DestinyInventoryItemDefinition.json, '$')
         WHERE json_tree.key = 'name' AND UPPER(json_tree.value) LIKE UPPER (${query})` //update later to send all tables for perks and lore data a join might be needed
-
+  
         
 		db.get(userQuery, (err, row) => {
 			if(err) throw err;
-            var tableData = row.ITEM
-            var itemData = JSON.parse(tableData);
+            let tableData = row.ITEM
+            let itemData = JSON.parse(tableData);
             console.log(itemData)
             res.json(itemData);       
 		});

@@ -13,7 +13,7 @@ let definitions = require('./apiRequest/table.json');
 const router = express.Router();
 const cors = require('cors');
 
-app.get("/Bungie-Project", (req, res) => {
+app.get("/", (req, res) => {
     res.send("404 URL NOT FOUND");
  });
 
@@ -21,8 +21,12 @@ app.get("/Bungie-Project", (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
-app.use('/', manifest);
-app.use(cors());
+app.use('/Bungie-Project', manifest);
+app.use(cors({
+    origin: '*',
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+}));
 
 
 app.listen(port, host, () => console.log('server is up'));
