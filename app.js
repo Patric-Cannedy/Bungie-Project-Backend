@@ -13,15 +13,15 @@ let definitions = require('./apiRequest/table.json');
 const router = express.Router();
 const cors = require('cors');
 
-// app.get("/", (req, res) => {
-//     res.send("404 URL NOT FOUND");
-//  });
+app.get("/", (req, res) => {
+    res.send("Server Page");
+ });
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
-app.use('/Bungie-Project', manifest);
+app.use('/http://localhost:5000/', manifest);
 app.use(cors({
     origin: '*',
     credentials:true,            //access-control-allow-credentials:true
