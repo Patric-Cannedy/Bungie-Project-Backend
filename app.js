@@ -13,9 +13,9 @@ let definitions = require('./apiRequest/table.json');
 const router = express.Router();
 const cors = require('cors');
 
-app.get("/", (req, res) => {
-    res.send("404 URL NOT FOUND");
- });
+// app.get("/", (req, res) => {
+//     res.send("404 URL NOT FOUND");
+//  });
 
 
 app.use(bodyParser.json());
