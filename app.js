@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
-app.use('http://localhost:5000/', manifest);
+app.use('/', manifest);
 app.use(cors({
     origin: '*',
     credentials:true,            //access-control-allow-credentials:true
