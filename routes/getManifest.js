@@ -56,7 +56,7 @@ router.post('/', (req, res)=> {
     let db = new sql.Database('manifest.content', (err) => {
         if (err) return console.error(err.messsage);
             });
-    let userInput = req.body
+    let userInput = req.body.input
     let query =  `"%${userInput}%"`
     console.log(userInput)
     // serialize makes it so that each line has to finish before the next starts
