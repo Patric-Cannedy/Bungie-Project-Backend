@@ -68,11 +68,15 @@ router.post('/', (req, res)=> {
   
         
 		db.get(userQuery, (err, row) => {
-			if(err) throw err;
+			if(row) {
             let tableData = row.ITEM
             let itemData = JSON.parse(tableData);
             console.log(itemData)
-            res.json(itemData);       
+            res.json(itemData);  
+            } else {
+                console.log('no rows found');
+            }
+                 
 		});
 
 
