@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
     res.send("Server Page");
  });
 let corsOptions= {
-    origin: 'http://localhost:5000/',
+    origin: 'http://localhost:5000',
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
 }; 
