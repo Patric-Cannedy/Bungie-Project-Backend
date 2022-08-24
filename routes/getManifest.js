@@ -11,9 +11,9 @@ const StreamZip = require('node-stream-zip');
 const port = process.env.PORT || 3000
 
 let baseUrl = 'https://www.bungie.net';
-let manifest = "/common/destiny2_content/sqlite/en/world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content"
+let manifest = "/common/destiny2_content/sqlite/en/world_sql_content_c0b6f372037834a3fc8e8f12c3b02363.content"
 //english entry in the zip file that must be extracted
-let en_option = 'world_sql_content_a32fd2a48a47c41fc8d1b8038d43fe27.content'
+let en_option = 'world_sql_content_c0b6f372037834a3fc8e8f12c3b02363.content'
 
 let options = {
         url: baseUrl + manifest,
